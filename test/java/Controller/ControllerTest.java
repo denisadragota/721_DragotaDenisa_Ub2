@@ -51,6 +51,17 @@ class ControllerTest {
         controller= new Controller(produktRepository, bestellungRepository);
     }
 
+    public void testSortBestellungenNachGesamtpreis(){
+        //hochste preis hat Bestellung b2
+        assertEquals(b2, controller.sortBestellungenNachGesamtpreis().get(0));
+    }
+
+    public void testFilterBestellungenNachProdukt(){
+        //nur b1 hat p2
+        Bestellung[] bestellungs = new Bestellung[1];
+        bestellungs[0]=b1;
+        assertArrayEquals(bestellungs,controller.filterBestellungenNachProdukt(p2.getId()).toArray());
+    }
 
 
 
