@@ -8,12 +8,14 @@ public class Bestellung {
     private int bestellnr;
     private String adresse;
     private List<Produkt> produkte;
+    private float gesamtPreis;
 
-    public Bestellung(Long id, int bestellnr, String adresse, List<Produkt> produkte) {
+    public Bestellung(Long id, int bestellnr, String adresse, List<Produkt> produkte, float gesamtPreis) {
         this.id = id;
         this.bestellnr = bestellnr;
         this.adresse = adresse;
         this.produkte = produkte;
+        this.gesamtPreis=gesamtPreis;
     }
 
     public Long getId() {
@@ -46,5 +48,13 @@ public class Bestellung {
 
     public void setProdukte(List<Produkt> produkte) {
         this.produkte = produkte;
+    }
+
+    public float getGesamtPreis() {
+        return gesamtPreis;
+    }
+
+    public void setGesamtPreis(float gesamtPreis) {
+        this.gesamtPreis = gesamtPreis;
     }
 }
