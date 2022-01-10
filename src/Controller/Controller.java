@@ -42,6 +42,10 @@ public class Controller {
         return this.bestellungRepository.delete(id);
     }
 
+    /**
+     * sortiert Bestellungen nach Gesamtpreis
+     * @return Liste von Bestellungen
+     */
     public List<Bestellung> sortBestellungenNachGesamtpreis(){
         return this.bestellungRepository.findAll()
                 .stream()
@@ -49,6 +53,11 @@ public class Controller {
                 .collect(Collectors.toList());
     }
 
+    /**
+     * filtriert Bestellungen nach Produkt mit gegebene id
+     * @param id des Produktes zu filtrieren nach
+     * @return filtrierte Liste von Bestellungen
+     */
     public List<Bestellung> filterBestellungenNachProdukt(Long id){
         return this.bestellungRepository.findAll()
                 .stream()
@@ -56,6 +65,11 @@ public class Controller {
                 .collect(Collectors.toList());
     }
 
+    /**
+     * findet Produkt mit gegebene id
+     * @param id des Produktes
+     * @return Produkt
+     */
     private Produkt findProdukt(Long id){
         return this.produktRepository.findOne(id);
     }
